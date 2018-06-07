@@ -71,5 +71,21 @@ public class ValidatorTest {
 
     }
 
+    /*Tests the method which displays the description of password strength*/
+    @Test
+    public void strengthDescribe(){
+        v.setPassword("");
+        assertEquals(v.describeStrength(), "Enter Password");
+        v.setPassword("PASSWORD");
+        assertEquals(v.describeStrength(), "Very Weak");
+        v.setPassword("eeeeeeee");
+        assertEquals(v.describeStrength(), "Weak");
+        v.setPassword("eEeEeEeEeE");
+        assertEquals(v.describeStrength(), "Moderate");
+        v.setPassword("eEeEeE@eEeE");
+        assertEquals(v.describeStrength(), "Strong");
+        v.setPassword(("2eEeEeE@eeEe"));
+        assertEquals(v.describeStrength(), "Very Strong");
+    }
 
 }
