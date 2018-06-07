@@ -29,6 +29,28 @@ public class Validator {
 
         return strength;
     }
+
+    public String describeStrength(){
+        String description = "";
+        int strength = this.validate();
+        switch (strength){
+            case 0: description = "Enter Password";
+                    break;
+            case 1: description = "Very Weak";
+                    break;
+            case 2: description = "Weak";
+                    break;
+            case 3: description = "Moderate";
+                    break;
+            case 4: description = "Strong";
+                    break;
+            case 5: description = "Very Strong";
+                    break;
+            default: description = "Error: Invalid";
+                    break;
+        }
+        return description;
+    }
     private boolean isNotPassword(){
         if (getPassword().equalsIgnoreCase("password")){
             return false;
